@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <tr>
+            <th> Provider_Id </th>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Provider_specialty </th>
+            <th> Email Address </th>
+            <th> Phone Number </th>
+            <th> Date Joined </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <% data.forEach(row =>{%>
+            <tr>
+                <td> <%= row.provider_id %> </td>
+                <td> <%= row.first_name %> </td>
+                <td> <%= row.last_name %> </td>
+                <td> <%= row.provider_specialty %> </td>
+                <td> <%= row.email_address %> </td>
+                <td> <%= row.phone_number %> </td>
+                <td> <%= row.date_joined %> </td>
+            </tr>
+        <%});%>
+    </tbody>
+</table>
