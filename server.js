@@ -22,7 +22,7 @@ const db = mysql.createConnection({
 // is running and can perform actions
 //
 // app.get('',(req, res) => {
-//     res.send("Hello World, Allan helped")
+//     res.send("Hello World, Allan helped").
 // })
 
 // Testing the connection
@@ -37,41 +37,49 @@ db.connect((err) => {
 });
 
 // this is not important
- app.set('view engine', 'ejs')
- app.set('views', __dirname + '/views')
+//  app.set('view engine', 'ejs')
+//  app.set('views', __dirname + '/views')
 
 
 // Question 1
-/*
-app.get("", (req, res) => {
+
+app.get("/patients", (req, res) => {
   const getPatients = "SELECT patient_id, first_name, last_name, date_of_birth FROM patients";
   db.query(getPatients, (err, data) => {
     if (err) {
       return res.status(400).send("Failed to get patients", err);
     } 
-*/
+   res.status(200).send(data);
+    //res.status(200).render('data', {data})
+  });
+});
 
 // Question 2
-/*
-app.get("", (req, res) => {
+app.get("/providers", (req, res) => {
   const getProviders = "SELECT first_name, last_name, provider_specialty FROM providers";
   db.query(getProviders, (err, data) => {
     if (err) {
       return res.status(400).send("Failed to get provider information", err);
       }
-*/
+   res.status(200).send(data);
+    //res.status(200).render('data', {data})
+  });
+});
 
-/* Question 3
- app.get("", (req, res) => {
+ //Question 3
+ app.get("/patients-firstname", (req, res) => {
      const getPatients = "SELECT first_name FROM patients";
      db.query(getPatients, (err, data) => {
      if (err) {
          return res.status(400).send("Failed to get patient information", err);
          }
-*/
+   res.status(200).send(data);
+    //res.status(200).render('data', {data})
+  });
+});
 
 // Question 4
-app.get("", (req, res) => {
+app.get("/provider-specialty", (req, res) => {
       const getProviders = "SELECT * FROM providers ORDER BY provider_specialty ASC";
       db.query(getProviders, (err, data) => {
       if (err) {
@@ -79,8 +87,8 @@ app.get("", (req, res) => {
           }
 
 
-    // res.status(200).send(data);
-    res.status(200).render('data', {data})
+     res.status(200).send(data);
+    //res.status(200).render('data', {data})
   });
 });
 
